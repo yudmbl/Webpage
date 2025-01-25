@@ -1,0 +1,23 @@
+<div class="row g-5 mb-5">
+  <div>
+    <h3 class="fw-bold border-bottom pb-3 mb-5">Publications</h3>
+    {% for item in site.data.publications %}
+      <article>
+          <p>
+              <strong>Title:</strong>
+              {% if item.url %}
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.name }}</a>
+              {% else %}
+                {{ item.name }}
+              {% endif %}
+          </p>
+          <p>
+              <strong>Authors:</strong>
+              {% for author in item.authors %}
+                  {{ author }}{% if forloop.last == false %}, {% endif %}
+              {% endfor %}
+          </p>
+      </article>
+    {% endfor %}
+  </div>
+</div>
